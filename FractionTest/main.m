@@ -6,12 +6,24 @@
 //  Copyright (c) 2014 Anatolii Reva. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
+#import "Fraction.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
-    }
+    
+        Fraction *aFraction = [[Fraction alloc] init];
+        Fraction *bFraction = [[Fraction alloc] init];
+        Fraction *resultFraction;
+        
+        [aFraction setTo:8 over:4];
+        [aFraction print:0];
+        NSLog(@"+");
+        [bFraction setTo:1 over:2];
+        [bFraction print:0];
+        NSLog(@"=");
+        
+        resultFraction = [aFraction add: bFraction];
+        [resultFraction print:1];
+        
+        }
     return 0;
 }

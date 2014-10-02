@@ -9,17 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface Fraction : NSObject
-{
-    int numerator;
-    int denominator;
-}
-
 @property int numerator, denominator;
 
--(void) print;
+-(void) print: (BOOL) toReduce;
 -(void) setTo: (int) n over: (int) d;
 -(double) convertToNum;
 -(Fraction *) add: (Fraction *) f;
+-(Fraction *) substract: (Fraction *) f;
+-(Fraction *) multiply: (Fraction *) f;
+-(Fraction *) divide: (Fraction *) f;
 -(void) reduce;
 
 

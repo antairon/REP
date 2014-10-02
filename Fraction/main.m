@@ -16,15 +16,15 @@ int main(int argc, const char * argv[]) {
         
         Fraction *resultFraction;
         
-        [aFraction setTo: 1 over: 4]; // set 1st fraction to 1/4
+        [aFraction setTo: 6 over: 4]; // set 1st fraction to 1/4
         [bFraction setTo: 1 over: 2]; // set 2nd fraction to 1/2
         
         [aFraction print];
-        NSLog (@"+");
+        NSLog (@"*");
         [bFraction print];
         NSLog (@"=");
         
-        resultFraction = [aFraction add: bFraction];
+        resultFraction = [aFraction multiply: bFraction];
         [resultFraction print];
 
     }

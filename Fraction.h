@@ -14,6 +14,7 @@
 -(void) print: (BOOL) toReduce;
 -(void) setTo: (int) n over: (int) d;
 -(double) convertToNum;
+-(int) wholeNumber;
 -(Fraction *) add: (Fraction *) f;
 -(Fraction *) substract: (Fraction *) f;
 -(Fraction *) multiply: (Fraction *) f;

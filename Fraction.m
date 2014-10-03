@@ -10,10 +10,45 @@
 
 @implementation Fraction
 @synthesize numerator, denominator;
-
--(void) print
+int wholeNumber;
+//int numerator, denominator;
+-(void) print: (BOOL) toReduce
 {
-    NSLog (@"%i/%i", numerator, denominator);
+    Fraction * printedResult = [[Fraction alloc]init];
+    printedResult.numerator = numerator;
+    printedResult.denominator = denominator;
+    if (toReduce)
+    {   [printedResult reduce];
+        [printedResult wholeNumber];
+                if (wholeNumber > 0)
+                { NSLog(@"%i %i/%i", wholeNumber, printedResult.numerator, printedResult.denominator);
+                    }
+                else
+                {
+                NSLog (@"%i/%i", printedResult.numerator, printedResult.denominator);}
+    }
+    else
+    {
+        [printedResult wholeNumber];
+        if (wholeNumber > 0)
+        {NSLog(@"%i %i/%i", wholeNumber, printedResult.numerator, printedResult.denominator);
+}
+            else
+            {
+                NSLog (@"%i/%i", printedResult.numerator, printedResult.denominator);}
+    }
+    wholeNumber = 0;
+   
+}
+
+
+-(int) wholeNumber
+{
+    if (numerator > 0 && denominator > 0 && numerator > denominator)
+    {wholeNumber = numerator / denominator;
+        numerator = numerator % denominator;
+        return wholeNumber;}
+    return NAN;
 }
 
 -(double) convertToNum
@@ -21,7 +56,7 @@
     if (denominator != 0)
         return (double) numerator / denominator;
     else
-        return 1.0;
+        return NAN;
 }
 
 -(void) setTo: (int) n over: (int) d
@@ -37,13 +72,49 @@
     
     // result will store the result of the addition
     Fraction *result = [[Fraction alloc] init];
-    int resultNum, resultDenom;
     
-    resultNum = numerator * f.denominator + denominator * f.numerator;
-    resultDenom = denominator * f.denominator;
+    result.numerator = numerator * f.denominator + denominator * f.numerator;
+    result.denominator = denominator * f.denominator;
     
-    [result setTo: resultNum over: resultDenom];
-    [result reduce];
+    // [result setTo: result.numerator over: result.denominator];
+    //  [result reduce];
+    
+    return result;
+}
+
+-(Fraction *) substract: (Fraction *) f
+{
+    Fraction *result = [[Fraction alloc] init];
+    
+    result.numerator = numerator * f.denominator - denominator * f.numerator;
+    result.denominator = denominator * f.denominator;
+    
+    // [result setTo: result.numerator over: result.denominator];
+    //[result reduce];
+    
+    return result;
+}
+-(Fraction *) multiply: (Fraction *) f
+{
+    Fraction *result = [[Fraction alloc] init];
+    
+    result.numerator = numerator * f.numerator;
+    result.denominator = denominator * f.denominator;
+    
+    //  [result setTo: result.numerator over: result.denominator];
+    //[result reduce];
+    
+    return result;
+}
+-(Fraction *) divide: (Fraction *) f
+{
+    Fraction *result = [[Fraction alloc] init];
+    
+    result.numerator = numerator * f.denominator;
+    result.denominator = denominator * f.numerator;
+    
+    //[result setTo: result.numerator over: result.denominator];
+    //[result reduce];
     
     return result;
 }

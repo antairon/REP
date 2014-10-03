@@ -19,13 +19,13 @@ int main(int argc, const char * argv[]) {
         [aFraction setTo: 6 over: 4]; // set 1st fraction to 1/4
         [bFraction setTo: 1 over: 2]; // set 2nd fraction to 1/2
         
-        [aFraction print];
+        [aFraction print: YES];
         NSLog (@"*");
-        [bFraction print];
+        [bFraction print: YES];
         NSLog (@"=");
         
         resultFraction = [aFraction multiply: bFraction];
-        [resultFraction print];
+        [resultFraction print: YES];
 
     }
     return 0;

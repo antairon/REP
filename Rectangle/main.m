@@ -6,17 +6,16 @@
 //  Copyright (c) 2014 Anatolii Reva. All rights reserved.
 //
 
-#import "Rectangle.h"
+#import "Square.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 
-        Rectangle * myRect = [[Rectangle alloc] init];
-        [myRect setWidth:8 andHeight: 8];
-        NSLog(@"Rectangle: w = %i, h = %i", myRect.width, myRect.height);
-        NSLog(@"Area: %i", [myRect area]);
-        NSLog(@"Perimeter: %i", [myRect perimeter]);
-    
+        Square * mySquare = [Square new];
+        [mySquare setSide:5];
+        NSLog(@"Square side is: %i", mySquare.side);
+        NSLog(@"Square area is: %i", [mySquare area]);
+        NSLog(@"Square perimeter is: %i", [mySquare perimeter]);
     }
     return 0;
 }
